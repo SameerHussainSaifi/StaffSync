@@ -12,7 +12,11 @@
             <img src="/images/logo.png" alt="Logo" class="logo">
         </div>
         <div class="nav-right">
+<<<<<<< HEAD
             <a href="/login" class="btn">Login</a>
+=======
+            <a href="/admin/login" class="btn">Admin Login</a>
+>>>>>>> 0c9653935535e462ea38ea7c11bb959f94aeb012
             <a href="/admin/register" class="btn">Admin Register</a>
         </div>
     </nav>

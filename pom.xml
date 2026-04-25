@@ -8,10 +8,17 @@
 		<version>4.0.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+<<<<<<< HEAD
 	<groupId>com.staffSync</groupId>
 	<artifactId>StaffSync</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>StaffSync</name>
+=======
+	<groupId>com.springBoot</groupId>
+	<artifactId>Employee-Management-Portal</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Employee-Management-Portal</name>
+>>>>>>> 0c9653935535e462ea38ea7c11bb959f94aeb012
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ===============================
 # Project Help File
 # ===============================
@@ -66,3 +67,12 @@ build/
 *.jar
 *.war
 *.ear
+=======
+target/
+*.class
+*.log
+.settings/
+.project
+.classpath
+src/main/resources/application.properties
+>>>>>>> 0c9653935535e462ea38ea7c11bb959f94aeb012
