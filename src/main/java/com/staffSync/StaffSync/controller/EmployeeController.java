@@ -22,53 +22,54 @@ import jakarta.servlet.http.HttpSession;
 public class EmployeeController {
 
 	@Autowired
-	EmployeeService es;
+	EmployeeService employeeService;
 	
 	
+	@GetMapping("/employee/dashboard")
+	public String showDashboard() {
+		return "employeeDashboard";
+	}
 	
 	 
 @GetMapping("/employee/add")
 public String showAddEmployeePage() {
-	return "addHR";
+	return "addEmployee";
 }
 	    
 	
 	@PostMapping("/employee/save")
-	public String addEmployee(@ModelAttribute Employee emp) {
-		es.addEmployee(emp);
-		return "redirect:/admin/dashboard";
+	public String saveEmployee(@ModelAttribute Employee emp) {
+		employeeService.saveEmployee(emp);
+		return "redirect:/employee/add";
 	}
 	
 	@GetMapping("/employee/update/{id}")
 	public String showUpdateForm(@PathVariable("id") int id, Model model) {
-		Employee employee=es.getEmployeeById(id);
+		Employee employee=employeeService.getEmployeeById(id);
 		model.addAttribute("employee",employee);
 		return "updateEmployee";
 	}
 	
 	@PostMapping("/employee/update")
 	public String updateEmployee(@ModelAttribute Employee emp) {
-		es.updateEmployee(emp);
+		employeeService.updateEmployee(emp);
 		return "redirect:/admin/dashboard";
 		
 	}
 	
 	@GetMapping("/employee/delete/{id}")
 	public String deleteEmployee(@PathVariable("id") int id) {
-		es.deleteEmployee(id);
+		employeeService.deleteEmployee(id);
 		return "redirect:/admin/dashboard";
 	}
 	
 	@GetMapping("/employee/search")
 	public String searchEmployeeByName(@RequestParam("name") String name, Model model) {
-		List<Employee> emp=es.searchEmployeeByName(name);
+		List<Employee> emp=employeeService.searchEmployeeByName(name);
 		model.addAttribute("employees",emp);
 		return "dashboard";
 	}
 	
-	@GetMapping("/employee/dashboard")
-	public String showDashboard() {
-		return "employeeDashboard";
-	}
+	
 
 }

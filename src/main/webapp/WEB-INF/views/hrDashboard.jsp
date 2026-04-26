@@ -20,12 +20,12 @@
 
     <div class="nav-left">
         <h2>HR Dashboard</h2>
-        <span class="welcome-text">| Welcome ${admin.name}</span>
+        <span class="welcome-text">| Welcome ${hr.name}</span>
     </div>
 
     <div class="nav-right">
 
-        <a href="/hr/add">
+        <a href="/employee/add">
             <button class="add-btn">Add Employee</button>
         </a>
 

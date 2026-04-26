@@ -15,33 +15,33 @@ import com.staffSync.StaffSync.repo.EmployeeRepo;
 public class EmployeeService {
 
 	@Autowired
-	EmployeeRepo er;
+	EmployeeRepo employeeRepo;
 	
-	public Employee addEmployee(Employee emp) {
-		return  er.save(emp);
+	public Employee saveEmployee(Employee emp) {
+		return  employeeRepo.save(emp);
 		 
 	}
 	
 	public List<Employee> getAllEmployees() {
-		return (List<Employee>) er.findAll();
+		return (List<Employee>) employeeRepo.findAll();
 	}
 	
 	public Employee getEmployeeById(int id) {
-	    return er.findById(id).orElse(null);
+	    return employeeRepo.findById(id).orElse(null);
 	}
 	
 	public Employee updateEmployee(Employee emp) {
-		return er.save(emp);
+		return employeeRepo.save(emp);
 	}
 	
 	public String deleteEmployee(int id) {
-		er.deleteById(id);
+		employeeRepo.deleteById(id);
 		return "employee deleted";
 		
 	}
 	
 	public List<Employee> searchEmployeeByName(String name) {
-		 return er.findByNameContainingIgnoreCase(name);
+		 return employeeRepo.findByNameContainingIgnoreCase(name);
 	}
 	
 //	public String getPassword() {

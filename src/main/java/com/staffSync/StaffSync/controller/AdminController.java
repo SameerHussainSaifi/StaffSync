@@ -14,6 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.staffSync.StaffSync.entity.Admin;
 import com.staffSync.StaffSync.entity.Employee;
+import com.staffSync.StaffSync.entity.HR;
 import com.staffSync.StaffSync.service.AdminService;
 import com.staffSync.StaffSync.service.EmployeeService;
 
@@ -67,6 +68,9 @@ public class AdminController {
 		model.addAttribute("employees", employees);
 		Admin admin=(Admin) session.getAttribute("admin");
 		model.addAttribute("admin",admin);
+		
+		Iterable<HR> hr=as.getAllHR();
+		model.addAttribute("hr", hr);
 		return "adminDashboard";
 	}
 	

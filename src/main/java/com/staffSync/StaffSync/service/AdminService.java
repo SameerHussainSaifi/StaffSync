@@ -3,21 +3,21 @@ package com.staffSync.StaffSync.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
 
 import com.staffSync.StaffSync.entity.Admin;
-import com.staffSync.StaffSync.entity.Employee;
+import com.staffSync.StaffSync.entity.HR;
 import com.staffSync.StaffSync.repo.AdminRepo;
-
-import jakarta.servlet.http.HttpSession;
+import com.staffSync.StaffSync.repo.HRRepo;
 
 @Component
 public class AdminService {
 
 	@Autowired
-	AdminRepo ar;
+	private AdminRepo ar;
+	
+	@Autowired
+	private HRRepo hrRepo;
 	
 	public void saveAdmin(Admin admin) {
 		ar.save(admin);
@@ -38,6 +38,8 @@ public class AdminService {
 		
 	}
 	
-	
+	public Iterable<HR> getAllHR() {
+		return hrRepo.findAll();
+	}
 	
 }
