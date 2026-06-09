@@ -10,6 +10,8 @@ import com.staffSync.StaffSync.repo.AdminRepo;
 import com.staffSync.StaffSync.repo.EmployeeRepo;
 import com.staffSync.StaffSync.repo.HRRepo;
 
+import jakarta.servlet.http.HttpSession;
+
 @Service
 public class UserService {
 
@@ -22,23 +24,33 @@ private EmployeeRepo employeeRepo;
 @Autowired
 private HRRepo hrRepo;
 
-	public String authenticate(String email, String password) {
+
+
+	public String authenticate(String email, String password, HttpSession session) {
 		
 		Admin admin=adminRepo.findByEmail(email);
 		if(admin!=null && admin.getPassword().equals(password)) {
+			session.setAttribute("admin", admin);
 			return "admin";
 		}
 		
 		Employee emp=employeeRepo.findByEmail(email);
 		if(emp!=null && emp.getPassword().equals(password)) {
+			session.setAttribute("employee", emp);
 			return "employee";
+			
 		}
 		
 		HR hr=hrRepo.findByEmail(email);
 		if(hr!=null && hr.getPassword().equals(password)) {
+			session.setAttribute("hr", hr);
 			return "hr";
 		}
 		
 		return "invalidate";
+	}
+	
+	public Iterable<Employee> getAllEmployees() {
+		return employeeRepo.findAll();
 	}
 }

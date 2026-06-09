@@ -1,10 +1,8 @@
 package com.staffSync.StaffSync.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.staffSync.StaffSync.entity.Employee;
+import com.staffSync.StaffSync.repo.EmployeeRepo;
 import com.staffSync.StaffSync.service.EmployeeService;
 
 import jakarta.servlet.http.HttpSession;
@@ -24,9 +23,15 @@ public class EmployeeController {
 	@Autowired
 	EmployeeService employeeService;
 	
+	@Autowired
+	EmployeeRepo employeeRepo;
 	
 	@GetMapping("/employee/dashboard")
-	public String showDashboard() {
+	public String showDashboard(Model model, HttpSession session) {
+		Employee employee=(Employee) session.getAttribute("loggedInRole");
+		 System.out.println("Employee from session: " + employee); // 👈 add this
+		model.addAttribute("employee",employee);
+		model.addAttribute("loggedInRole",employee);
 		return "employeeDashboard";
 	}
 	
@@ -53,7 +58,7 @@ public String showAddEmployeePage() {
 	@PostMapping("/employee/update")
 	public String updateEmployee(@ModelAttribute Employee emp) {
 		employeeService.updateEmployee(emp);
-		return "redirect:/admin/dashboard";
+		return "redirect:/employee/dashboard";
 		
 	}
 	
@@ -71,5 +76,12 @@ public String showAddEmployeePage() {
 	}
 	
 	
-
+	@GetMapping("/employeeLogout")
+	public String logout(HttpSession httpSession){
+		httpSession.invalidate();
+		return "redirect:/";
+	}
+		
+	
+   
 }

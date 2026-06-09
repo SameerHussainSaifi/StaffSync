@@ -72,6 +72,16 @@
 <input type="text" name="phone" required>
 </div>
 
+<div class="form-group">
+<label>Role</label>
+<input type="text" name="role" required>
+</div>
+
+<div class="form-group">
+<label>Password</label>
+<input type="text" name="password" required>
+</div>
+
 <button type="submit" class="save-btn">Save Employee</button>
 
 </form>

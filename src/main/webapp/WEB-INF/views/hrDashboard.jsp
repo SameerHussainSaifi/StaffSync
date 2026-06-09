@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>HR Dashboard</title>
 
-<link rel="stylesheet" href="/css/dashboard.css">
+<link rel="stylesheet" href="/css/hrdashboard.css">
 
 </head>
 
@@ -20,17 +20,29 @@
 
     <div class="nav-left">
         <h2>HR Dashboard</h2>
-        <span class="welcome-text">| Welcome ${hr.name}</span>
+        <span class="welcome-text">
+            | Welcome ${hr.name}
+        </span>
     </div>
 
     <div class="nav-right">
 
         <a href="/employee/add">
-            <button class="add-btn">Add Employee</button>
+            <button class="add-btn">
+                Add Employee
+            </button>
         </a>
 
-        <a href="/admin/logout">
-            <button class="logout-btn">Logout</button>
+        <a href="/hr/leaveRequests">
+            <button class="leave-btn">
+                Leave Requests
+            </button>
+        </a>
+
+        <a href="/hr/logout">
+            <button class="logout-btn">
+                Logout
+            </button>
         </a>
 
     </div>

@@ -29,10 +29,7 @@ public class AdminController {
 	@Autowired
 	EmployeeService es;
 	
-	@GetMapping("/")
-	public String showHomePage() {
-		return "home";
-	}
+	
 	
 	@GetMapping("/admin/register")
     public String showRegisterPage() {
@@ -66,11 +63,12 @@ public class AdminController {
 		
 		List<Employee> employees= es.getAllEmployees();
 		model.addAttribute("employees", employees);
-		Admin admin=(Admin) session.getAttribute("admin");
-		model.addAttribute("admin",admin);
+		
+		Admin loggedInRole=(Admin) session.getAttribute("loggedInRole");
+		model.addAttribute("loggedInRole",loggedInRole);
 		
 		Iterable<HR> hr=as.getAllHR();
-		model.addAttribute("hr", hr);
+		model.addAttribute("hrs", hr);
 		return "adminDashboard";
 	}
 	

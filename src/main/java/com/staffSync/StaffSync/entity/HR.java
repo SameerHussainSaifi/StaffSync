@@ -13,7 +13,7 @@ public class HR {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="hr_id")
+	@Column(name="hrid")
     private int hrId;
 
 	@Column(name="name")
@@ -58,11 +58,11 @@ public class HR {
 		super();
 	}
 
-	public int getHRId() {
+	public int getHrId() {
 		return hrId;
 	}
 
-	public void setHRId(int hrId) {
+	public void setHrId(int hrId) {
 		this.hrId = hrId;
 	}
 

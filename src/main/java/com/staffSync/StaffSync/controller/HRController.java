@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.staffSync.StaffSync.entity.Employee;
 import com.staffSync.StaffSync.entity.HR;
@@ -23,7 +24,8 @@ private HRService hrService;
 public String showHRDashboard(Model model, HttpSession session) {
 	Iterable<Employee> employees=hrService.getAllEmployees();
 	model.addAttribute("employees", employees);
-	//session.setAttribute("hr",)
+	HR loggedInRole=(HR) session.getAttribute("loggedInRole");
+	model.addAttribute("loggedInRole",loggedInRole);
 	return "hrDashboard";	
 }
 
@@ -36,5 +38,13 @@ public String showAddHRPage() {
 public String saveHR(@ModelAttribute HR hr ) {
 	hrService.saveHR(hr);
 	return "redirect:/hr/add";
+}
+
+@GetMapping("/hr/logout")
+public String hrLogout(HttpSession session,RedirectAttributes ra) {
+	session.invalidate();
+	//ra.addFlashAttribute("message", "HR logged out Successfully");
+	return "redirect:/";
+	
 }
 }

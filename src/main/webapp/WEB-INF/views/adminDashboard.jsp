@@ -31,10 +31,6 @@ pageEncoding="UTF-8"%>
         <button class="add-btn">Add HR</button>
     </a>
 
-    <a href="/employee/add">
-        <button class="add-btn">Add Employee</button>
-    </a>
-
     <a href="/admin/logout">
         <button class="logout-btn">Logout</button>
     </a>
