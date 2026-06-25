@@ -45,7 +45,7 @@
 		            <button class="leave-btn">Apply Leave</button>
 		        </a>
 
-		        <a href="/leave/my-leaves/${employee.employeeId}">
+		        <a href="/leave/status/${employee.employeeId}">
 		            <button class="view-leave-btn">My Leave Requests</button>
 		        </a>
 		    </div>

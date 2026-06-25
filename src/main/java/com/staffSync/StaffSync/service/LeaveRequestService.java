@@ -1,5 +1,6 @@
 package com.staffSync.StaffSync.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,4 +39,8 @@ public class LeaveRequestService {
 			leaveRequestRepo.save(leave);
 		}
 	}
+
+	 public List<LeaveRequest> getLeaveStatusByEmployeeId(int employeeId) {
+	        return leaveRequestRepo.findByEmployeeId(employeeId);
+	    }
 }

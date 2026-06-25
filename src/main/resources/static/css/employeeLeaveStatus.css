@@ -1,0 +1,107 @@
+/* Page Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fc;
+}
+
+/* Main Container */
+.container {
+    width: 80%;
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+/* Heading */
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Leave Card */
+.leave-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transition: transform 0.2s ease;
+}
+
+.leave-card:hover {
+    transform: translateY(-3px);
+}
+
+/* Each Row */
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.row:last-child {
+    border-bottom: none;
+}
+
+/* Labels */
+.label {
+    font-weight: bold;
+    color: #444;
+}
+
+/* Status Badge */
+.status {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+/* Approved Status */
+.status.APPROVED,
+.status.Approved,
+.status.approved {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* Pending Status */
+.status.PENDING,
+.status.Pending,
+.status.pending {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+/* Rejected Status */
+.status.REJECTED,
+.status.Rejected,
+.status.rejected {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* No Records Message */
+h3 {
+    text-align: center;
+    color: #777;
+    margin-top: 30px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    .row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+}

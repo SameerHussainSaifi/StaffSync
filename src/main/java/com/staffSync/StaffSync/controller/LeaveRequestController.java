@@ -1,6 +1,7 @@
 package com.staffSync.StaffSync.controller;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -56,6 +57,17 @@ public class LeaveRequestController {
 	  public String rejectLeave(@PathVariable int id) {
 		  leaveRequestService.rejectLeave(id);
 		  return "redirect:/hr/leaveRequests";
+	  }
+	  
+	  @GetMapping("/leave/status/{id}")
+	  public String leaveRequest(@PathVariable("id") int employeeId, Model model) {
+
+	      List<LeaveRequest> leaveRequests =
+	              leaveRequestService.getLeaveStatusByEmployeeId(employeeId);
+
+	      model.addAttribute("leaveRequests", leaveRequests);
+
+	      return "employeeLeaveStatus";
 	  }
 
 }
