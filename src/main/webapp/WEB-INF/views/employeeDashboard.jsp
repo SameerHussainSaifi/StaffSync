@@ -41,7 +41,7 @@
 		    <p>Apply for leave and track your leave requests.</p>
 
 		    <div class="leave-btn-container">
-		        <a href="/apply/leave">
+		        <a href="/employee/leave/apply">
 		            <button class="leave-btn">Apply Leave</button>
 		        </a>
 

@@ -16,7 +16,7 @@
 
     <h2>Apply Leave</h2>
 
-    <form action="/apply/leave" method="post">
+    <form action="/hr/leave/apply" method="post">
 
         <div class="form-group">
             <label>Leave Type</label>
@@ -39,7 +39,8 @@
             <label>End Date</label>
             <input type="date" name="endDate" required>
         </div>
-
+         
+         
         <div class="form-group">
             <label>Reason</label>
             <textarea name="reason" rows="4" required></textarea>

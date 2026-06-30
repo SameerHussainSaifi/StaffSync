@@ -14,19 +14,19 @@ import com.staffSync.StaffSync.repo.HRRepo;
 public class AdminService {
 
 	@Autowired
-	private AdminRepo ar;
+	private AdminRepo adminRepo;
 	
 	@Autowired
 	private HRRepo hrRepo;
 	
 	public void saveAdmin(Admin admin) {
-		ar.save(admin);
+		adminRepo.save(admin);
 	}
 	
 
 	public Admin adminAuthenticate(Admin admin ) {
 		
-		Admin existingAdmin=ar.findByEmail(admin.getEmail());
+		Admin existingAdmin=adminRepo.findByEmail(admin.getEmail());
 		if(existingAdmin != null && existingAdmin.getPassword().equals(admin.getPassword())) {
 			
 			

@@ -188,3 +188,21 @@ body{
 .leave-btn:hover{
     background-color: #138496;
 }
+
+.apply-btn,
+.my-request-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.apply-btn:hover,
+.my-request-btn:hover {
+    background-color: #388E3C;
+}

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-	<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
 <!DOCTYPE html>
 <html>
@@ -33,9 +33,23 @@
             </button>
         </a>
 
-        <a href="/hr/leaveRequests">
+        <a href="/hr/manage/leaveRequests">
             <button class="leave-btn">
                 Leave Requests
+            </button>
+        </a>
+
+        <!-- Apply Leave Button -->
+        <a href="/hr/leave/apply">
+            <button class="apply-btn">
+                Apply Leave
+            </button>
+        </a>
+
+        <!-- My Requests Button -->
+        <a href="/leave/myRequests">
+            <button class="my-request-btn">
+                My Requests
             </button>
         </a>
 
@@ -97,8 +111,6 @@
 </c:forEach>
 
 </div>
-
-
 
 </body>
 </html>

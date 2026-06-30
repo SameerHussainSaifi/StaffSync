@@ -8,12 +8,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class LeaveRequest {
+public class EmployeeLeaveRequest {
 	
 	@Id
 	 @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int leaveId;
-	
 	private int employeeId;
 	private String leaveType;
 	private LocalDate startDate;
@@ -24,13 +23,14 @@ public class LeaveRequest {
 	
 	
 	
-	public LeaveRequest() {
+	
+	public EmployeeLeaveRequest() {
 		super();
 	}
 
 
 
-	public LeaveRequest(int leaveId, int employeeId, String leaveType, LocalDate startDate, LocalDate endDate,
+	public EmployeeLeaveRequest(int leaveId, int employeeId, String leaveType, LocalDate startDate, LocalDate endDate,
 			String reason, String status, LocalDate appliedDate) {
 		super();
 		this.leaveId = leaveId;
@@ -41,6 +41,7 @@ public class LeaveRequest {
 		this.reason = reason;
 		this.status = status;
 		this.appliedDate = appliedDate;
+		
 	}
 
 
@@ -60,14 +61,12 @@ public class LeaveRequest {
 	public int getEmployeeId() {
 		return employeeId;
 	}
-
-
-
+	
+	
 	public void setEmployeeId(int employeeId) {
 		this.employeeId = employeeId;
 	}
-
-
+	
 
 	public String getLeaveType() {
 		return leaveType;
@@ -138,7 +137,8 @@ public class LeaveRequest {
 	public void setAppliedDate(LocalDate appliedDate) {
 		this.appliedDate = appliedDate;
 	}
-	
+
+
 	
 
 }

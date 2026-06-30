@@ -1,69 +1,71 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
-
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Leave Requests</title>
+<title>My Leave Status</title>
 
-<link rel="stylesheet"
-href="/css/hrLeaveRequests.css">
+<link rel="stylesheet" href="/css/employeeLeaveStatus.css">
 
 </head>
 <body>
 
 <div class="container">
 
-<h2>Leave Requests</h2>
+    <h2>My Leave Request Status</h2>
 
-<table>
+    <c:if test="${empty leaveList}">
+        <h3>No leave requests found.</h3>
+    </c:if>
 
-<tr>
-<th>Employee ID</th>
-<th>Leave Type</th>
-<th>Start Date</th>
-<th>End Date</th>
-<th>Reason</th>
-<th>Status</th>
-<th>Action</th>
-</tr>
+    <c:forEach var="leaveList" items="${leaveList}">
 
-<c:forEach var="leave"
-items="${leaveList}">
+        <div class="leave-card">
 
-<tr>
+            <div class="row">
+                <span class="label">Leave ID:</span>
+                <span>${leaveList.leaveId}</span>
+            </div>
 
-<td>${leave.employeeId}</td>
-<td>${leave.leaveType}</td>
-<td>${leave.startDate}</td>
-<td>${leave.endDate}</td>
-<td>${leave.reason}</td>
-<td>${leave.status}</td>
+            <div class="row">
+                <span class="label">HR ID:</span>
+                <span>${leaveList.hrId}</span>
+            </div>
 
-<td>
+            <div class="row">
+                <span class="label">Leave Type:</span>
+                <span>${leaveList.leaveType}</span>
+            </div>
 
-<a href="/leave/approve/${leave.leaveId}">
-<button class="approve-btn">
-Approve
-</button>
-</a>
+            <div class="row">
+                <span class="label">Start Date:</span>
+                <span>${leaveList.startDate}</span>
+            </div>
 
-<a href="/leave/reject/${leave.leaveId}">
-<button class="reject-btn">
-Reject
-</button>
-</a>
+            <div class="row">
+                <span class="label">End Date:</span>
+                <span>${leaveList.endDate}</span>
+            </div>
 
-</td>
+            <div class="row">
+                <span class="label">Reason:</span>
+                <span>${leaveList.reason}</span>
+            </div>
 
-</tr>
+            <div class="row">
+                <span class="label">Status:</span>
+                <span class="status ${leaveList.status}">
+                    ${leaveList.status}
+                </span>
+            </div>
 
-</c:forEach>
+        </div>
 
-</table>
+        <br>
+
+    </c:forEach>
 
 </div>
 

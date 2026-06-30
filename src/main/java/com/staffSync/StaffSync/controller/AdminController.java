@@ -24,10 +24,10 @@ import jakarta.servlet.http.HttpSession;
 public class AdminController {
 	
 	@Autowired
-	AdminService as;
+	private AdminService adminService;
 	
 	@Autowired
-	EmployeeService es;
+	private EmployeeService employeeService;
 	
 	
 	
@@ -38,7 +38,7 @@ public class AdminController {
 	
 	@PostMapping("/admin/save")
 	public String saveAdmin(@ModelAttribute Admin admin) {
-		as.saveAdmin(admin);
+		adminService.saveAdmin(admin);
 		return "redirect:/admin/register";
 	}
 	
@@ -49,7 +49,7 @@ public class AdminController {
 	
 	@PostMapping("/admin/login")
 	public String adminLogin(@ModelAttribute Admin admin, HttpSession session) {
-		Admin existingAdmin=as.adminAuthenticate(admin);
+		Admin existingAdmin=adminService.adminAuthenticate(admin);
 		if(existingAdmin != null) {
 			session.setAttribute("admin", existingAdmin);
 		return "redirect:/admin/dashboard";
@@ -61,13 +61,13 @@ public class AdminController {
 	@GetMapping("/admin/dashboard")
 	public String showDashboard(Model model, HttpSession session) {
 		
-		List<Employee> employees= es.getAllEmployees();
+		List<Employee> employees= employeeService.getAllEmployees();
 		model.addAttribute("employees", employees);
 		
-		Admin loggedInRole=(Admin) session.getAttribute("loggedInRole");
+		Admin loggedInRole=(Admin) session.getAttribute("admin");
 		model.addAttribute("loggedInRole",loggedInRole);
 		
-		Iterable<HR> hr=as.getAllHR();
+		Iterable<HR> hr=adminService.getAllHR();
 		model.addAttribute("hrs", hr);
 		return "adminDashboard";
 	}
