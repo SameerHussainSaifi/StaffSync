@@ -20,4 +20,8 @@ public class HrLeaveRequestService {
 		return hrLeaveRequestRepo.findAll();
 	}
 	
+	public Iterable<HrLeaveRequest> getHrLeaveRequest() {
+		return hrLeaveRequestRepo.findAll();
+	}
+	
 }

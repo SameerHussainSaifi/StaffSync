@@ -15,8 +15,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.staffSync.StaffSync.entity.Admin;
 import com.staffSync.StaffSync.entity.Employee;
 import com.staffSync.StaffSync.entity.HR;
+import com.staffSync.StaffSync.entity.HrLeaveRequest;
 import com.staffSync.StaffSync.service.AdminService;
 import com.staffSync.StaffSync.service.EmployeeService;
+import com.staffSync.StaffSync.service.HRService;
+import com.staffSync.StaffSync.service.HrLeaveRequestService;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -29,7 +32,8 @@ public class AdminController {
 	@Autowired
 	private EmployeeService employeeService;
 	
-	
+	@Autowired
+	private HrLeaveRequestService hrLeaveRequestService;
 	
 	@GetMapping("/admin/register")
     public String showRegisterPage() {
@@ -81,5 +85,12 @@ public class AdminController {
 	return "redirect:/admin/login";	
 	}
 	
+	@GetMapping("/admin/Manage/hrLeaveRequest")
+	public String adminManagehrLeaveRequest(Model model) {
+	Iterable<HrLeaveRequest> hrLeaveRequest= hrLeaveRequestService.getHrLeaveRequest();
+	model.addAttribute("hrLeaveRequest",hrLeaveRequest);
 	
+	return "adminManageHrLeaveRequest";
+	
+	}
 }

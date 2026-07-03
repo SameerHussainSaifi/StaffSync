@@ -819,3 +819,135 @@ footer{
     }
 
 }
+
+/*==============================
+ HR LEAVE REQUEST MODULE
+==============================*/
+
+.leave-management-card{
+
+    margin-top:30px;
+
+    background:linear-gradient(135deg,#1f2a44,#243554);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:22px;
+
+    padding:28px 35px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    text-decoration:none;
+
+    color:#fff;
+
+    transition:.35s ease;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+
+}
+
+.leave-management-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 25px 50px rgba(59,130,246,.25);
+
+    border-color:#3b82f6;
+
+}
+
+.leave-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:22px;
+
+}
+
+.leave-icon{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:18px;
+
+    background:linear-gradient(135deg,#3b82f6,#2563eb);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:28px;
+
+    color:#fff;
+
+}
+
+.leave-left h3{
+
+    font-size:26px;
+
+    margin-bottom:8px;
+
+    color:#fff;
+
+}
+
+.leave-left p{
+
+    color:#cbd5e1;
+
+    font-size:15px;
+
+    line-height:1.6;
+
+    max-width:600px;
+
+}
+
+.leave-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:#60a5fa;
+
+}
+
+.leave-right i{
+
+    transition:.3s;
+
+}
+
+.leave-management-card:hover .leave-right i{
+
+    transform:translateX(8px);
+
+}
+
+.leave-management-card:hover .leave-icon{
+
+    transform:rotate(-8deg) scale(1.08);
+
+    transition:.35s;
+
+}

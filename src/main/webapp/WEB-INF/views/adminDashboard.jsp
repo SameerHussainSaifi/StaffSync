@@ -484,6 +484,56 @@ class="dashboard-section">
 
 </section>
 
+<!--================ HR LEAVE REQUESTS ================-->
+<section class="dashboard-section">
+
+    <div class="section-heading">
+
+        <h2>
+            <i class="fa-solid fa-calendar-check"></i>
+            HR Leave Requests
+        </h2>
+
+        <p>
+            Review, approve and reject leave requests submitted by HR members.
+        </p>
+
+    </div>
+
+    <a href="/admin/Manage/hrLeaveRequest" class="leave-management-card">
+
+        <div class="leave-left">
+
+            <div class="leave-icon">
+
+                <i class="fa-solid fa-calendar-check"></i>
+
+            </div>
+
+            <div>
+
+                <h3>Manage HR Leave Requests</h3>
+
+                <p>
+                    View, approve and reject all HR leave requests from one centralized panel.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="leave-right">
+
+            <span>Open Module</span>
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </div>
+
+    </a>
+
+</section>
+
 <!--================ DASHBOARD INFO ================-->
 
 <section class="dashboard-info">
